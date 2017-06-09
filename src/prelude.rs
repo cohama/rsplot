@@ -143,7 +143,7 @@ struct DrawingConf {
 static DEFAULT_DRAWING_CONF: DrawingConf = DrawingConf {
     axis_color: (0.0, 0.0, 0.0),
     plot_color: (0.3, 0.7, 0.6),
-    line_color: (0.1, 0.1, 0.4),
+    line_color: (0.3, 0.5, 0.9),
     axis_margin_px: 10
 };
 
@@ -169,7 +169,7 @@ impl <'a, 'b> CairoDrawer<'a, 'b> {
         }
     }
 
-    pub fn f2p(&self, x: f64, y: f64) -> (f64, f64) {
+    fn f2p(&self, x: f64, y: f64) -> (f64, f64) {
         let (w, h) = (self.width as f64, self.height as f64);
         let m = self.conf.axis_margin_px as f64;
         let (xt, yt) = (self.xaxis.to, self.yaxis.to);
